@@ -1,0 +1,48 @@
+    <style type='text/css'>
+    table {
+        border-collapse: collapse;
+        padding: 3px;
+        border: 1px solid black;
+    }
+    th, td {
+        border:1px solid grey; 
+        padding:0.5em;
+        color: black;
+    }
+    .container { 
+        width: 100%;
+    }
+    g.label {
+        color: black;
+    }
+    .node rect, .node.circle {
+        stroke: black;
+        background-color: azure;
+        font-family: sans-serif;
+        font-weight: normal;
+    }
+    </style>
+<script>
+function loadGraph(graphdiv){
+        // mermaid API, feed it the div name and it'll load the file and render it.
+        var element = document.querySelector("#"+graphdiv);
+        
+        var insertSvg = function(svgCode, bindFunctions){
+            element.innerHTML = svgCode;
+        };
+        var graphdiv_filename = graphdiv.replace("_","+");
+        $.ajax({url: "/vsx_map/graph_files/"+graphdiv_filename+".txt", success: function(data){
+            var graph = mermaidAPI.render(graphdiv, data, insertSvg);
+            element.firstChild.style.height = element.getAttribute('viewbox').split(' ')[3] + 'px'
+
+            } 
+        
+        });
+
+    }
+</script>
+
+    </head>
+    <body>
+<a name='top' />
+
