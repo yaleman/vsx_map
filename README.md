@@ -1,3 +1,8 @@
+# ⚠️ THIS IS ARCHIVED AND WILL NOT BE UPDATED ⚠️
+
+
+
+
 # VSX Parser
 
 Can't make sense of your VSX environment? Me either. 
